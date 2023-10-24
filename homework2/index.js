@@ -7,9 +7,13 @@ const checkApiKey = require('./middlewares/checkApiKey');
 const router = require('./router/userRouter');
 const cors = require('cors');
 
+const dbConfig = require('./config/mongodbConfig');
+
 app.use(morgan('combined'))
 app.use(cors())
 app.use(express.json());
+
+dbConfig();
 
 app.use(router);
 
